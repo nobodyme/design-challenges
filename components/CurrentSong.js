@@ -1,15 +1,16 @@
 import React from 'react';
 import {
-  View,
+  StyleSheet,
+  View
 } from 'react-native';
 import AppText from './AppText';
 
-const CustomHeader = () => {
+const CurrentSong = () => {
   return (
     <View>
-      <AppText size='large'>Muse</AppText>
+      <AppText>Current SOng</AppText>
     </View>
-  );
+  )
 }
 
-export default CustomHeader;
+export default CurrentSong;
