@@ -9,13 +9,15 @@
 import React from 'react';
 import CustomHeader from './components/CustomHeader';
 import RecentlyPlayed from './components/RecentlyPlayed';
+import FavoriteArtist from './components/FavoriteArtist';
+import NavBar from './components/NavBar';
+import CurrentSong from './components/CurrentSong';
 
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
@@ -26,31 +28,29 @@ const App = () => {
   return (
     <SafeAreaView>
       <StatusBar/>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <CustomHeader/>
-        <RecentlyPlayed/>
+      <ScrollView contentContainerStyle={styles.mainContainer} contentInsetAdjustmentBehavior="automatic">
+        <View style={{ flex: 1, justifyContent: 'flex-start'}}>
+          <CustomHeader/>
+          <RecentlyPlayed/>
+          <FavoriteArtist/>
+        </View>
+        <View style={{ flex: 1, justifyContent: 'flex-end'}}>
+          <CurrentSong/>
+          <NavBar/>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+  mainContainer: {
+    flexGrow: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    backgroundColor: '#202344',
+    color: 'white'
+  }
 });
 
 export default App;

@@ -1,36 +1,42 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   View,
+  ScrollView
 } from 'react-native';
-import RecentlyPlayedListItems from './RecentlyPlayedListItems';
+import SongListItem from './SongListItem';
+import AppText from './AppText';
 
 const songs = [
   {
     "id": 1,
     "name": "Sunset",
-    "artist": "Midnight"
+    "artist": "Midnight",
+    "image": require("../assets/images/sunset.jpeg")
   },
   {
     "id": 2,
     "name": "Stargazing",
-    "artist": "Kygo"
+    "artist": "Kygo",
+    "image": require("../assets/images/stargazing.jpeg")
   },
   {
     "id": 3,
     "name": "Lean On",
-    "artist": "Major Lazer"
+    "artist": "Major Lazer",
+    "image": require("../assets/images/lean-on.jpeg")
   },
   {
     "id": 4,
     "name": "Here I am Again",
-    "artist": "Yerin Beak"
+    "artist": "Yerin Beak",
+    "image": require("../assets/images/here-i-am-again.jpeg")
   },
   {
     "id": 5,
     "name": "Is You",
-    "artist": "AILEE"
+    "artist": "AILEE",
+    "image": require("../assets/images/is-you.png")
   }
 ]
 
@@ -38,14 +44,14 @@ const RecentlyPlayed = () => {
   return (
     <View>
       <View style={styles.container}>
-        <Text>Recently played</Text>
-        <Text>SEE ALL</Text>
+        <AppText size='large'>Recently played</AppText>
+        <AppText>SEE ALL</AppText>
       </View>
-      <View style={styles.itemContainer}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {songs.map((song) =>
-          <RecentlyPlayedListItems song={song} key={song.id}/>
+          <SongListItem song={song} key={song.id}/>
         )}
-      </View>
+      </ScrollView>
     </View>
   )
 }
