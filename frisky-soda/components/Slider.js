@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Image, ImageBackground,
-  TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
+import { View, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import ImageItem from './ImageItem';
 
 export default function Slider(props) {
@@ -38,7 +37,7 @@ function imageList(props) {
     imagesObject.map((image) => {
       return (
         <View key={image.id} style={{ paddingHorizontal: 10 }}>
-          <TouchableOpacity onPress={() => props.navigation.navigate('Details')}>
+          <TouchableOpacity onPress={() => props.navigation.navigate('Details', {...image})}>
             <ImageItem item={image}/>
           </TouchableOpacity>
         </View>
