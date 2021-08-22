@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Image, Button } from 'react-native';
 
-import Slider from './Slider';
+import Slider from '../components/Slider';
 
 export default function HomeScreen(props) {
-  return ( 
+  return (
     <View style={styles.container}>
       <View style={styles.topBar}>
         <View style={styles.bar}>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.8,
-    shadowRadius: 2,  
+    shadowRadius: 2,
     elevation: 5
   },
   paragraph: {
