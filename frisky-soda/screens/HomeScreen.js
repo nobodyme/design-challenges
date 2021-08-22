@@ -7,6 +7,11 @@ import Settings from '../assets/svg/Settings';
 import ImageBox from '../assets/svg/ImageBox';
 import Archive from '../assets/svg/Archive';
 import Add from '../assets/svg/Add';
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_700Bold
+} from "@expo-google-fonts/poppins";
 
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
@@ -17,6 +22,10 @@ const sliderHeight = screenHeight - headerHeight - toolHeight;
 const toolWidth = screenWidth * 0.8;
 
 export default function HomeScreen(props) {
+  let [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_700Bold
+  })
   return (
       <View style={styles.container}>
         <View style={styles.headerContainer}>
@@ -24,10 +33,12 @@ export default function HomeScreen(props) {
             <Image style={styles.logo} source={require('../assets/profile.png')} />
             <Settings />
           </View>
-          <View style={styles.headerTextContainer}>
+          {fontsLoaded ? <View style={styles.headerTextContainer}>
+            <Text style={{fontFamily: 'Poppins_700Bold', fontSize: 38, lineHeight: 40}}>Your</Text>
+            <Text style={{fontFamily: 'Poppins', fontSize: 38, lineHeight: 40, fontWeight: 'bold'}}>Journals</Text>
             <Text style={styles.header}>Your</Text>
             <Text style={styles.header}>Journals</Text>
-          </View>
+          </View> : <Text syle={{ fontFamily: 'Poppins_400Regular'}}>Loading</Text> }
         </View>
         <View style={styles.sliderContainer}>
           <Slider {...props}/>
