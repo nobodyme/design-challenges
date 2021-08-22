@@ -6,7 +6,7 @@ export default function Slider(props) {
   return (
     <SafeAreaView>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{flex: 1, flexDirection: 'row', height: '100%', width: '100%'}}>
             {imageList(props)}
           </View>
       </ScrollView>
@@ -36,7 +36,7 @@ function imageList(props) {
   return (
     imagesObject.map((image) => {
       return (
-        <View key={image.id} style={{ paddingHorizontal: 10 }}>
+        <View key={image.id} style={{ paddingHorizontal: 10, height: '100%' }}>
           <TouchableOpacity onPress={() => props.navigation.navigate('Details', {...image})}>
             <ImageItem item={image}/>
           </TouchableOpacity>

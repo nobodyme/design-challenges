@@ -7,7 +7,7 @@ const screenHeight = Dimensions.get('window').height;
 export default function ImageItem(props) {
   let imageSize
   if (props.size === 'large') {
-    imageSize = { width: screenWidth - 20, height: screenHeight * 0.7}
+    imageSize = {...styles.imageBackground, width: '100%'}
   } else {
     imageSize = {...styles.imageBackground}
   }
@@ -27,16 +27,9 @@ export default function ImageItem(props) {
 }
 
 const styles = StyleSheet.create({
-  // paragraph: {
-  //   margin: 24,
-  //   marginTop: 0,
-  //   fontSize: 14,
-  //   fontWeight: 'bold',
-  //   textAlign: 'center',
-  // },
   imageBackground: {
-    height: 520,
-    width: 280
+    width: 280,
+    height: '100%'
   },
   image: {
     borderRadius: 20
