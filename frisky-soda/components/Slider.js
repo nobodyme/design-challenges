@@ -24,7 +24,8 @@ function imageList(props) {
     {
       id: 2,
       imageSource: require('../assets/tokyo-bg.jpeg'),
-      date: 'June 30, 2019'
+      date: 'June 30, 2019',
+      favorite: true
     },
     {
       id: 3,

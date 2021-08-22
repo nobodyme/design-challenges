@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Image, ImageBackground, Dimensions} from 'react-native';
+import { Text, View, StyleSheet, ImageBackground} from 'react-native';
 
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
+import Favorite from '../assets/svg/Favorite';
 
 export default function ImageItem(props) {
   let imageSize
@@ -15,7 +14,7 @@ export default function ImageItem(props) {
     <ImageBackground style={imageSize} imageStyle={styles.image} source={props.item.imageSource}>
       <View style={styles.imageContent}>
         <View style={styles.iconContainer}>
-          <Image style={styles.icon} source={require('../assets/icons/favorite-fill.svg')} />
+        {props.item.favorite ? <Favorite /> : null}
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.header}>Trip to Tokyo</Text>
@@ -42,21 +41,21 @@ const styles = StyleSheet.create({
   iconContainer: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    padding: 15
   },
   icon: {
     height: 24,
     width: 24,
   },
   textContainer: {
-    marginBottom: 10,
-    marginLeft: 10
+    padding: 20
   },
   header: {
     color: 'white',
     fontSize: 38,
     fontWeight: 'bold',
-    paddingVertical: 10
+    paddingVertical: 8
   },
   text: {
     color: 'white'

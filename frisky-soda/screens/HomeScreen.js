@@ -9,10 +9,12 @@ import Archive from '../assets/svg/Archive';
 import Add from '../assets/svg/Add';
 
 const screenHeight = Dimensions.get('window').height;
+const screenWidth = Dimensions.get('window').width;
 
 const headerHeight = screenHeight * 0.2;
-const navHeight = screenHeight * 0.1;
-const sliderHeight = screenHeight - headerHeight - navHeight;
+const toolHeight = screenHeight * 0.15;
+const sliderHeight = screenHeight - headerHeight - toolHeight;
+const toolWidth = screenWidth * 0.8;
 
 export default function HomeScreen(props) {
   return (
@@ -30,10 +32,12 @@ export default function HomeScreen(props) {
         <View style={styles.sliderContainer}>
           <Slider {...props}/>
         </View>
-        <View style={styles.toolBox}>
-          <Archive/>
-          <Add/>
-          <ImageBox/>
+        <View style={styles.toolContainer}>
+          <View style={styles.tools}>
+            <Archive/>
+            <Add/>
+            <ImageBox/>
+          </View>
         </View>
       </View>
   )
@@ -67,7 +71,8 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 38,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    // lineHeight: 40
   },
   icon: {
     height: 24,
@@ -77,25 +82,33 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     height: sliderHeight
   },
-  toolBox: {
+  toolContainer: {
+    paddingVertical: 30,
+    flex: 1,
+    // height: toolHeight,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  tools: {
+    width: toolWidth,
+    // height: '100%',
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 2,
-    paddingHorizontal: 20,
+    paddingVertical: 25,
+    paddingHorizontal: 40,
     backgroundColor: 'white',
-    borderRadius: 20,
+    borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    elevation: 5,
-    height: navHeight
+    elevation: 2
   },
   toolBoxIcon: {
     height: 24,
-    width: 24,
+    width: 24
   },
   toolBoxIconActive: {
     height: 64,
