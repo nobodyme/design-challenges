@@ -39,7 +39,7 @@ function imageList(props) {
       return (
         <View key={image.id} style={{ paddingHorizontal: 10, height: '100%' }}>
           <TouchableOpacity onPress={() => props.navigation.navigate('Details', {...image})}>
-            <ImageItem item={image}/>
+            <ImageItem item={image} navigation={props.navigation}/>
           </TouchableOpacity>
         </View>
       )

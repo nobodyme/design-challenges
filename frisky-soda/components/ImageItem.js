@@ -1,20 +1,33 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, ImageBackground} from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
 
 import Favorite from '../assets/svg/Favorite';
+import Back from '../assets/svg/Back';
 
 export default function ImageItem(props) {
-  let imageSize
+  let imageSize;
   if (props.size === 'large') {
     imageSize = {...styles.imageBackground, width: '100%'}
   } else {
     imageSize = {...styles.imageBackground}
   }
+
   return (
     <ImageBackground style={imageSize} imageStyle={styles.image} source={props.item.imageSource}>
       <View style={styles.imageContent}>
         <View style={styles.iconContainer}>
-        {props.item.favorite ? <Favorite /> : null}
+          <View style={styles.backIconContainer}>
+            {props.back ?
+            <TouchableOpacity>
+              <Back
+                onPress={() => props.navigation.goBack()}
+              />
+            </TouchableOpacity>
+            : null}
+          </View>
+          <View style={styles.favIconContainer}>
+            {props.item.favorite ? <Favorite /> : null}
+          </View>
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.header}>Trip to Tokyo</Text>
@@ -36,13 +49,19 @@ const styles = StyleSheet.create({
   imageContent: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   iconContainer: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    padding: 15
+    padding: 15,
+    justifyContent: 'space-between'
+  },
+  favIconContainer: {
+    marginLeft: 'auto'
+  },
+  backIconContainer: {
+    marginRight: 'auto'
   },
   icon: {
     height: 24,

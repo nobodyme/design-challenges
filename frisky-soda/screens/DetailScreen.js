@@ -9,11 +9,11 @@ const screenHeight = Dimensions.get('window').height;
 
 const imageHeight = screenHeight * 0.7;
 
-export default function DetailScreen({route}) {
+export default function DetailScreen(props) {
   return (
       <View style={styles.imageContainer}>
         <View style={{ height: imageHeight, width: screenWidth, paddingHorizontal: 10, paddingBottom: 10 }}>
-          <ImageItem item={route.params} size='large'/>
+          <ImageItem item={props.route.params} size='large' back={true} navigation={props.navigation}/>
         </View>
         <View style={styles.textContainer}>
           <View style={styles.textContentContainer}>
@@ -26,7 +26,7 @@ export default function DetailScreen({route}) {
             <View>
               <Text
                 ellipsizeMode='tail'
-                numberOfLines={5}
+                numberOfLines={4}
                 style={styles.text}>
                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ip
               </Text>
