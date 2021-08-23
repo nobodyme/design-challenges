@@ -12,3 +12,14 @@ Snack is Open Source. You can find the code on the [GitHub repo](https://github.
 
 
 DESIGN: https://www.figma.com/proto/OLD5sqIZ69y5dlh70WiU1R/travel-journal?node-id=10%3A34&starting-point-node-id=10%3A34
+
+SNACK: https://snack.expo.dev/@nobodyme/journal
+
+
+TIL:
+- From routers on the web to navigators on native
+- Scroll Views
+- Shared element transition - big part in native
+- Touchable opacity for button
+- SafeAreaView and status bar collision
+- Custom fonts and svgs - deeper look needed
